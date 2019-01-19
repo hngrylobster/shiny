@@ -1,0 +1,33 @@
+{
+  "name": "shiny",
+  "version": "0.0.1",
+  "description": "Creates shiny objects.",
+  "private": true,
+  "bin": {
+    "shiny": "./bin/shiny"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": {
+    "name": "Paul Legan",
+    "email": "paul@meetkp.com",
+    "url": "https://github.com/hngrylobster"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hngrylobster/shiny"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/hngrylobster/shiny/issues",
+  "dependencies": {
+    "commander": "~2.0.0",
+    "autocmdr": "~0.0.7",
+    "fs-extra": "^7.0.1",
+    "inquirer": "^6.2.0",
+    "fast-glob": "^2.2.4",
+    "mustache": "^2.3.2",
+    "sanitize-filename": "^1.6.1"
+  },
+  "devDependencies": {}
+}
