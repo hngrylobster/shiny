@@ -10,8 +10,10 @@ const inquirer = require('inquirer');
 const fg = require('fast-glob');
 const mustache = require('mustache');
 const sanitize = require("sanitize-filename");
+const handlebars = require("handlebars");
 
 const util = require('../lib/util.js');
+const filters = require('../lib/filters.js');
 
 module.exports = function(program) {
 
@@ -22,6 +24,9 @@ module.exports = function(program) {
 		.action(function (what) {
 
 			if (what) {
+
+				// initialize filters
+				filters.registerFilters();
 				
 				// try to folder in the user's home path with that name
 				let templateDir = path.join(homedir, "shiny/templates/" + what);
@@ -35,7 +40,13 @@ module.exports = function(program) {
 					if (fs.pathExistsSync(configPath)) {
 
 						// load the configuration file
-						let config = require(configPath);
+						let config = {};
+						try {
+							config = require(configPath);
+						} catch (error) {
+							console.error("Oops. There was an error reading that template's configuration.");
+							process.exit();
+						}
 
 						// load the passed in parameters
 						let passedInValues = process.argv.slice(4);
@@ -83,11 +94,22 @@ module.exports = function(program) {
 
 							files.forEach(function(file){
 								let relativeFile = path.relative(templateDir, file);
-								let destFileName = mustache.render(path.join(currentDir, relativeFile), finalAnswers);
 
-								if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
-									util.writeFile(destFileName, file, finalAnswers);
+								// mustache option
+								//let destFileName = mustache.render(path.join(currentDir, relativeFile), finalAnswers);
+
+								// handlebars option
+								let template = handlebars.compile(path.join(currentDir, relativeFile));
+								let destFileName = template(finalAnswers);
+
+								try {
+									if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
+										util.writeFile(destFileName, file, finalAnswers);
+									}
+								} catch (error) {
+									console.error("Oops. shiny ran into a problem writing a file or two. Please try again.");
 								}
+								
 							});
 
 							// now we can exit

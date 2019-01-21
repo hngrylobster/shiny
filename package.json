@@ -21,11 +21,12 @@
   "license": "MIT",
   "bugs": "https://github.com/hngrylobster/shiny/issues",
   "dependencies": {
-    "commander": "~2.0.0",
     "autocmdr": "~0.0.7",
-    "fs-extra": "^7.0.1",
-    "inquirer": "^6.2.0",
+    "commander": "~2.0.0",
     "fast-glob": "^2.2.4",
+    "fs-extra": "^7.0.1",
+    "handlebars": "^4.0.12",
+    "inquirer": "^6.2.0",
     "mustache": "^2.3.2",
     "sanitize-filename": "^1.6.1"
   },
