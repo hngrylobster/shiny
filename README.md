@@ -12,7 +12,7 @@ To install shiny from npm, run:
 $ npm install -g shiny
 ```
 
-```node ./bin/shiny --help```
+```shiny --help```
 
 Your templates are located in `~/shiny/templates`. Each template has a `shiny.json` file that has configuration information. It lets you define:
 
