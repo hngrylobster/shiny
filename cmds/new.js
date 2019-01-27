@@ -112,8 +112,8 @@ module.exports = function(program) {
 
 								try {
 									if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
-										util.writeFile(destFileName, file, finalAnswers);
 										console.log(chalk.green("Writing: " + destFileName));
+										util.writeFile(destFileName, file, finalAnswers);
 									}
 								} catch (error) {
 									console.error("Oops. shiny ran into a problem writing a file or two. Please try again.");
