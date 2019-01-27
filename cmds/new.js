@@ -90,12 +90,10 @@ module.exports = function(program) {
 							let finalAnswers = Object.assign({}, answers, preAnswers);
 
 							// for each file in the directory, run through the rules engine to see if this file is OK to copy
-							let files = fg.sync([templateDir + '/**', '!**/shiny.json'], { dot: true } );
+							let files = fg.sync([templateDir + '/**', '!**/shiny.json', '!**/.DS_Store'], { dot: true } );
 
 							files.forEach(function(file){
 								let relativeFile = path.relative(templateDir, file);
-
-								console.log(file);
 
 								// mustache option
 								//let destFileName = mustache.render(path.join(currentDir, relativeFile), finalAnswers);
