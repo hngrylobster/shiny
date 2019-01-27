@@ -90,7 +90,7 @@ module.exports = function(program) {
 							let finalAnswers = Object.assign({}, answers, preAnswers);
 
 							// for each file in the directory, run through the rules engine to see if this file is OK to copy
-							let files = fg.sync([templateDir + '/**', '!**/shiny.json'] );
+							let files = fg.sync([templateDir + '/**', '!**/shiny.json'], { dot: true } );
 
 							files.forEach(function(file){
 								let relativeFile = path.relative(templateDir, file);
@@ -105,6 +105,7 @@ module.exports = function(program) {
 								try {
 									if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
 										util.writeFile(destFileName, file, finalAnswers);
+										console.log(chalk.green("Writing: " + destFileName));
 									}
 								} catch (error) {
 									console.error("Oops. shiny ran into a problem writing a file or two. Please try again.");
