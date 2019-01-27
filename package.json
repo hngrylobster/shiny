@@ -21,7 +21,7 @@
   "license": "MIT",
   "bugs": "https://github.com/hngrylobster/shiny/issues",
   "dependencies": {
-    "autocmdr": "~0.0.7",
+    "autocmdr": "~0.0.8",
     "chalk": "^2.4.2",
     "commander": "~2.0.0",
     "fast-glob": "^2.2.4",
