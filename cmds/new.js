@@ -95,6 +95,8 @@ module.exports = function(program) {
 							files.forEach(function(file){
 								let relativeFile = path.relative(templateDir, file);
 
+								console.log(file);
+
 								// mustache option
 								//let destFileName = mustache.render(path.join(currentDir, relativeFile), finalAnswers);
 
@@ -112,7 +114,6 @@ module.exports = function(program) {
 
 								try {
 									if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
-										console.log(chalk.green("Writing: " + destFileName));
 										util.writeFile(destFileName, file, finalAnswers);
 									}
 								} catch (error) {
