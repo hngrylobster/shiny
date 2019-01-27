@@ -99,8 +99,16 @@ module.exports = function(program) {
 								//let destFileName = mustache.render(path.join(currentDir, relativeFile), finalAnswers);
 
 								// handlebars option
-								let template = handlebars.compile(path.join(currentDir, relativeFile));
-								let destFileName = template(finalAnswers);
+								let originalFileName = path.join(currentDir, relativeFile);
+								let destFileName = '';
+
+								// if this isn't a dot file, run the filename through Handlebars
+								if (originalFileName.startsWith(".")) {
+									destFileName = originalFileName;
+								} else {
+									let template = handlebars.compile(originalFileName);
+									destFileName = template(finalAnswers);
+								}
 
 								try {
 									if (util.shouldWriteFile(relativeFile, config.rules, finalAnswers)) {
