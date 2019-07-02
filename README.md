@@ -63,6 +63,17 @@ There is no limit to how many files can exist within a template, and both file/f
     └── {{component}}.html
 ```
 
+## Template Library
+
+Many templates are available in a separate repository:
+https://github.com/hngrylobster/shiny-templates
+
+You can clone this repository into your `~/shiny/templates` directory to get them all.
+
+```
+git clone https://github.com/hngrylobster/shiny-templates.git ~/shiny/templates
+```
+
 ## License
 
 Copyright (c) 2019 Paul Legan
