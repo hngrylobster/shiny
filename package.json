@@ -1,6 +1,6 @@
 {
   "name": "@paul.legan/shiny",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create shiny objects using configurable templates.",
   "bin": {
     "shiny": "./bin/shiny"

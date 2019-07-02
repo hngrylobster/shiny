@@ -9,7 +9,7 @@
 To install shiny from npm, run:
 
 ```
-$ npm install -g shiny
+$ npm install -g @paul.legan/shiny
 ```
 
 ```shiny --help```
