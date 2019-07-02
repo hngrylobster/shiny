@@ -1,8 +1,7 @@
 {
-  "name": "shiny",
+  "name": "@paul.legan/shiny",
   "version": "0.0.1",
-  "description": "Creates shiny objects.",
-  "private": true,
+  "description": "Create shiny objects using configurable templates.",
   "bin": {
     "shiny": "./bin/shiny"
   },
@@ -11,7 +10,7 @@
   },
   "author": {
     "name": "Paul Legan",
-    "email": "paul@meetkp.com",
+    "email": "paul.legan@gmail.com",
     "url": "https://github.com/hngrylobster"
   },
   "repository": {
